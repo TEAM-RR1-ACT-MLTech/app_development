@@ -28,12 +28,14 @@
 # Streamlit dependencies
 import streamlit as st
 from PIL import Image
+import joblib,os
+
 
 # Data handling dependencies
 import pandas as pd
 import numpy as np
 import utils
-
+import base64
 
 # Custom Libraries
 from utils.data_loader import load_movie_titles
@@ -43,6 +45,17 @@ from recommenders.content_based import content_model
 # Data Loading
 title_list = load_movie_titles('resources/data/movies.csv')
 
+#Loading svd model
+
+@st.cache_resource
+def load_model(url, name):
+	SVD= open(url, name) 
+	model = joblib.load(SVD) # load SVD from the pkl file
+	return model
+
+
+SVD = load_model("resources\models\svd_model.pkl","rb")
+
 # App declaration
 def main():
     
@@ -50,7 +63,7 @@ def main():
     # DO NOT REMOVE the 'Recommender System' option below, however,
     # you are welcome to add more options to enrich your app.
     page_options = ["Recommender System","Solution Overview","About Us", "EDA","How It Works","FAQs","Feedback"]
-    st.sidebar.image('resources\imgs\logo.jpg',use_column_width=True)
+    st.sidebar.image('resources\imgs\log.jpg',use_column_width=True)
                
     # -------------------------------------------------------------------
     # ----------- !! THIS CODE MUST NOT BE ALTERED !! -------------------
@@ -58,9 +71,12 @@ def main():
     page_selection = st.sidebar.selectbox("Choose Option", page_options)
     if page_selection == "Recommender System":
         # Header contents
-        video_file = open('resources\imgs\GIF.mp4', 'rb')
-        video_bytes = video_file.read()
-        st.video(video_bytes)
+        file_ = open('resources\imgs\GIF2.gif', "rb")
+        contents = file_.read()
+        data_url = base64.b64encode(contents).decode("utf-8")
+        file_.close()
+        st.markdown(f'<img src="data:image/gif;base64,{data_url}" alt="GIF gif">',
+        unsafe_allow_html=True,)
         st.write('# Movie Recommender Engine')
         st.write('### EXPLORE Data Science Academy Unsupervised Predict')
         st.image('resources/imgs/Image_header.png',use_column_width=True)
@@ -110,22 +126,34 @@ def main():
     # ------------- SAFE FOR ALTERING/EXTENSION -------------------
     if page_selection == "Solution Overview":
         st.title("Solution Overview")
+        st.image('resources\imgs\gg.jpg',use_column_width=True)
         st.write("Describe your winning approach on this page")
+        
     if  page_selection == "About Us":
         st.title("About Us")
         st.write("[Meet the team>]")
         st.write("What we do")
+        
     if  page_selection=="EDA":
         st.title("EDA")
         st.write("The following EDA was done prior to developing the reccomemder algorithm")
+        st.title("Average Ratings Distribution")
+        st.image('resources\imgs\Avarage Ratings Distributions.png',use_column_width=True)
+        st.title("Top 10 Genres")
+        st.image('resources\imgs\most pop genres.png',use_column_width=True)
+        st.title("Most Popular Movie")
+        st.image('resources\imgs\MostPopularMovie (1).png',use_column_width=True)
+        
     if  page_selection=="How It Works":
         st.title("How It Works")
         st.info("Simple Explanation")
         expander = st.expander("See here for more info")
         expander.write("This is a non-technical explanation explanation on how the app works.")
+        st.image('resources\imgs\content-based_vs_collaborative_light.png',use_column_width=True)
         st.info("Complicated Explanation")
         expand = st.expander("See here for more info")
         expand.write('''This is a technical explanation on how the app works''')
+        st.image('resources\imgs\Schematic-representation-for-singular-value-decomposition-SVD-analysis.png',use_column_width=True)
 
     if  page_selection == "FAQs":    
         st.info("Frequently Asked Questions (FAQs) for the movie recommender App")
