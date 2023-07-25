@@ -127,12 +127,12 @@ def main():
     if page_selection == "Solution Overview":
         st.title("Solution Overview")
         st.image('resources\imgs\gg.jpg',use_column_width=True)
-        st.write("Describe your winning approach on this page")
+        st.write('The objective is to construct a recommender system that employs content or collaborative filtering approaches to accurately forecast a users rating for a movie they have not watched, leveraging their past preferences. The aim is to develop a robust and effective solution that holds substantial economic potential, as it enables users to discover and engage with content aligned with their interests, ultimately driving revenue and fostering loyalty to the platform. For Both the collaborative and content-based filtering we implemented a few models to find a model that gives us the best rmse score which is a representation of your model performance. The model with the best rmse score was the singular value decomposition(SVD). The SVD performed better since it is very good at noise detection and does this by reducing the dimensions of a matrix in order to make certain subsequent matrix calculations simpler. By implementing SVD, which returned a very good RMSE score of 0.81 we can conclude that the algorithm implemented for our app is very good at movie recommendations.')
         
     if  page_selection == "About Us":
         st.title("About Us")
-        st.write("[Meet the team>]")
-        st.write("What we do")
+        expander = st.expander("Meet The Team")
+        expander.image('resources\imgs\meet the team.png')
         
     if  page_selection=="EDA":
         st.title("EDA")
