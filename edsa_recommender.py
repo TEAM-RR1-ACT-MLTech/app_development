@@ -31,11 +31,13 @@ from PIL import Image
 import joblib,os
 
 
+
 # Data handling dependencies
 import pandas as pd
 import numpy as np
 import utils
 import base64
+import pickle 
 
 # Custom Libraries
 from utils.data_loader import load_movie_titles
@@ -44,8 +46,6 @@ from recommenders.content_based import content_model
 
 # Data Loading
 title_list = load_movie_titles('resources/data/movies.csv')
-
-#Loading svd model
 
 # App declaration
 def main():
@@ -151,19 +151,15 @@ def main():
         faq_one = st.expander("What is the purpose of the ML Tech movie recommender App?")
         faq_one.write('''The purpose of this app is to recommend movies to viewers based on the movies they have watched before.''')
         faq_two = st.expander("How does the app recommend movies?")
-        faq_two.write('''The app uses a machine learning model .................''')
+        faq_two.write('''The app uses a machine learning model called the singular value decomposition(SVD). The SVD  is very good at noise detection and does this by reducing the dimensions of a matrix in order to make certain subsequent matrix calculations simpler, therefore triangulating the different movies watched by the client and other viewers to recommend the best next movie to watch''')
         faq_three=st.expander("What technologies are used to build the app?") 
         faq_three.write('''The app is built using the Streamlit framework, which is a Python library for building interactive web applications.
 It also leverages machine learning libraries such as scikit-learn for the recommender model.''')
-        faq_four=st.expander("How accurate is the movie recommender?")
-        faq_four.write('''The accuracy of the recommender model depends on........''')
         faq_five=st.expander("Can the app handle real-time data?") 
-        faq_five.write('''Yes, the app can handle real-time data...............''')
+        faq_five.write('''Yes, the app can handle real-time data''')
         faq_six=st.expander("Is the app user-friendly for non-technical users?")
         faq_six.write('''Yes, the app is designed to be user-friendly even for non-technical users. 
 The Streamlit framework simplifies the development process and provides an intuitive interface where users can easily pick their favourite movies and have the app recommend movies they are more likely to watch in just one press.''') 
-        faq_sev=st.expander("Are there any limitations to the app?")
-        faq_sev.write('''The limitations of the app depend on the performance of the underlying machine learning model. Some potential limitations could include:...............''')
         faq_eight= st.expander(" Can the app be customized or extended?")
         faq_eight.write('''Yes, the app can be customized or extended based on specific requirements.
 Additional features, visualizations, or modifications can be implemented using the flexibility provided by the Streamlit framework.''')
