@@ -47,15 +47,6 @@ title_list = load_movie_titles('resources/data/movies.csv')
 
 #Loading svd model
 
-@st.cache_resource
-def load_model(url, name):
-	SVD= open(url, name) 
-	model = joblib.load(SVD) # load SVD from the pkl file
-	return model
-
-
-SVD = load_model("resources\models\svd_model.pkl","rb")
-
 # App declaration
 def main():
     
