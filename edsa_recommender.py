@@ -128,22 +128,22 @@ def main():
         st.title("EDA")
         st.write("The following EDA was done prior to developing the reccomemder algorithm")
         st.title("Average Ratings Distribution")
-        st.image('resources\imgs\Avarage Ratings Distributions.png',use_column_width=True)
+        st.image('resources/imgs/Avarage Ratings Distributions.png',use_column_width=True)
         st.title("Top 10 Genres")
-        st.image('resources\imgs\most pop genres.png',use_column_width=True)
+        st.image('resources/imgs/most pop genres.png',use_column_width=True)
         st.title("Most Popular Movie")
-        st.image('resources\imgs\MostPopularMovie (1).png',use_column_width=True)
+        st.image('resources/imgs/MostPopularMovie (1).png',use_column_width=True)
         
     if  page_selection=="How It Works":
         st.title("How It Works")
         st.info("Simple Explanation")
         expander = st.expander("See here for more info")
         expander.write("This is a non-technical explanation explanation on how the app works.")
-        st.image('resources\imgs\content-based_vs_collaborative_light.png',use_column_width=True)
+        st.image('resources/imgs/content-based_vs_collaborative_light.png',use_column_width=True)
         st.info("Complicated Explanation")
         expand = st.expander("See here for more info")
         expand.write('''This is a technical explanation on how the app works''')
-        st.image('resources\imgs\Schematic-representation-for-singular-value-decomposition-SVD-analysis.png',use_column_width=True)
+        st.image('resources/imgs/Schematic-representation-for-singular-value-decomposition-SVD-analysis.png',use_column_width=True)
 
     if  page_selection == "FAQs":    
         st.info("Frequently Asked Questions (FAQs) for the movie recommender App")
