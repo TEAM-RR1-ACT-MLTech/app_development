@@ -39,7 +39,6 @@ movies = pd.read_csv('resources/data/movies.csv', sep = ',')
 ratings = pd.read_csv('resources/data/ratings.csv')
 movies.dropna(inplace=True)
 
-model=pickle.load(open('resources\models\SVD.pkl', 'rb'))
 
 def data_preprocessing(subset_size):
     """Prepare data for use within Content filtering algorithm.
