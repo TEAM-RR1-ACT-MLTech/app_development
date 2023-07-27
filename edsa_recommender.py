@@ -122,7 +122,7 @@ def main():
     if  page_selection == "About Us":
         st.title("About Us")
         expander = st.expander("Meet The Team")
-        expander.image('resources\imgs\meet the team.png')
+        expander.image('resources/imgs/meet the team.png')
         
     if  page_selection=="EDA":
         st.title("EDA")
