@@ -49,12 +49,17 @@ title_list = load_movie_titles('resources/data/movies.csv')
 
 # App declaration
 def main():
-    
+    file_ = open('resources\imgs\GIF2.gif', "rb")
+    contents = file_.read()
+    data_url = base64.b64encode(contents).decode("utf-8")
+    file_.close()
+    st.markdown(f'<img src="data:image/gif;base64,{data_url}" alt="GIF gif">',
+    unsafe_allow_html=True,)
     
     # DO NOT REMOVE the 'Recommender System' option below, however,
     # you are welcome to add more options to enrich your app.
     page_options = ["Recommender System","Solution Overview","About Us", "EDA","How It Works","FAQs","Feedback"]
-    st.sidebar.image('resources/imgs/logoo.jpg',use_column_width=True)
+    st.sidebar.image('resources\imgs\logoo.jpg',use_column_width=True)
                
     # -------------------------------------------------------------------
     # ----------- !! THIS CODE MUST NOT BE ALTERED !! -------------------
@@ -62,12 +67,6 @@ def main():
     page_selection = st.sidebar.selectbox("Choose Option", page_options)
     if page_selection == "Recommender System":
         # Header contents
-        file_ = open('resources\imgs\GIF2.gif', "rb")
-        contents = file_.read()
-        data_url = base64.b64encode(contents).decode("utf-8")
-        file_.close()
-        st.markdown(f'<img src="data:image/gif;base64,{data_url}" alt="GIF gif">',
-        unsafe_allow_html=True,)
         st.write('# Movie Recommender Engine')
         st.write('### EXPLORE Data Science Academy Unsupervised Predict')
         st.image('resources/imgs/Image_header.png',use_column_width=True)
@@ -78,9 +77,9 @@ def main():
 
         # User-based preferences
         st.write('### Enter Your Three Favorite Movies')
-        movie_1 = st.selectbox('Fisrt Option',title_list[14930:15200])
-        movie_2 = st.selectbox('Second Option',title_list[25055:25255])
-        movie_3 = st.selectbox('Third Option',title_list[21100:21200])
+        movie_1 = st.selectbox('Fisrt Option',title_list[1000:2000])
+        movie_2 = st.selectbox('Second Option',title_list[2001:3000])
+        movie_3 = st.selectbox('Third Option',title_list[3001:4000])
         fav_movies = [movie_1,movie_2,movie_3]
 
         # Perform top-10 movie recommendation generation
