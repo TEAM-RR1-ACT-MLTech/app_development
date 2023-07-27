@@ -54,7 +54,7 @@ def main():
     # DO NOT REMOVE the 'Recommender System' option below, however,
     # you are welcome to add more options to enrich your app.
     page_options = ["Recommender System","Solution Overview","About Us", "EDA","How It Works","FAQs","Feedback"]
-    st.sidebar.image('resources\imgs\log.jpg',use_column_width=True)
+    st.sidebar.image('resources\imgs\logoo.jpg',use_column_width=True)
                
     # -------------------------------------------------------------------
     # ----------- !! THIS CODE MUST NOT BE ALTERED !! -------------------
