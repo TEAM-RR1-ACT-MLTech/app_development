@@ -46,9 +46,8 @@ ratings_df.drop(['timestamp'], axis=1,inplace=True)
 
 #Loading svd model
 
-with open('resources\models\SVD.pkl', 'rb') as file:
-    model = pickle.load(file)
-# model=pickle.load(open('resources/models/SVD.pkl', 'rb'))
+
+model=pickle.load(open('resources/models/SVD.pkl', 'rb'))
 
 def prediction_item(item_id):
     """Map a given favourite movie to users within the
