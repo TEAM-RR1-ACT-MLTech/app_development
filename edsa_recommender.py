@@ -49,12 +49,12 @@ title_list = load_movie_titles('resources/data/movies.csv')
 
 # App declaration
 def main():
-    #file_ = open('resources\imgs\GIF2.gif', "rb")
-    #contents = file_.read()
-    #data_url = base64.b64encode(contents).decode("utf-8")
-    #file_.close()
-    #st.markdown(f'<img src="data:image/gif;base64,{data_url}" alt="GIF gif">',
-    #unsafe_allow_html=True,)
+    file_ = open('resources\imgs\GIF2.gif', "rb")
+    contents = file_.read()
+    data_url = base64.b64encode(contents).decode("utf-8")
+    file_.close()
+    st.markdown(f'<img src="data:image/gif;base64,{data_url}" alt="GIF gif">',
+    unsafe_allow_html=True,)
     
     # DO NOT REMOVE the 'Recommender System' option below, however,
     # you are welcome to add more options to enrich your app.
