@@ -14,8 +14,7 @@ This repository houses all the essential resources and files for Team RR1's Reco
 Recommender systems play a crucial yet often overlooked role in today's technology-driven world. From search engines to online shopping, streaming platforms, and news feeds, these services heavily rely on recommendation algorithms to offer users the content they desire.
 
 At its core, recommender systems work by finding similarities between people (users) and things (items). There are two main approaches: content-based and collaborative filtering. Content-based filtering matches items based on their attributes, while collaborative filtering identifies similarities among users to generate personalized recommendations.
-
-During this Sprint, you will delve deeper into this concise explanation and explore the theoretical and practical aspects of recommendation algorithms. As you progress, you will gain a comprehensive understanding of how these algorithms drive personalized suggestions and enhance user experiences across various online platforms.    
+  
 
 ####  Description of contents of this Repository
 
